@@ -1,10 +1,12 @@
 ;---------------------------------------------------------------
 ; Lab1_solution.asm
 ;
-;
 ; Author: KMK
 ;
-; This program calculates the dot product of two vectors x & y
+;
+; This program first calculates a product of two integers and outputs it as HEX,
+; and after on calculates the dot product of two vectors x & y.
+;
 ;
 ; Expected output:
 ; 2a
