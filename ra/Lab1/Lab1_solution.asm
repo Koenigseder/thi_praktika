@@ -24,7 +24,6 @@ section .data
 
   x:         dd 17, 11, 4 ; Vector x
   y:         dd 4, -9, 8  ; Vector y
-  result:    dd 0         ; Final result
 
 section .text ; Code segment starts here
   global main
