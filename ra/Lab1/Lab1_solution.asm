@@ -1,7 +1,7 @@
 ;---------------------------------------------------------------
 ; Lab1_solution.asm
 ;
-; Author: KMK
+; Author: Kevin Koenigseder, Raphael Bauer
 ;
 ;
 ; This program first calculates a product of two integers and outputs it as HEX,
@@ -22,8 +22,8 @@ section .data
   a: dd 21
   b: dd 2
 
-  x:         dd 17, 11, 4 ; Vector x
-  y:         dd 4, -9, 8  ; Vector y
+  x: dd 17, 11, 4 ; Vector x
+  y: dd 4, -9, 8  ; Vector y
 
 section .text ; Code segment starts here
   global main
