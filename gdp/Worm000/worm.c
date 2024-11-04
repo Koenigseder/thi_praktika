@@ -33,8 +33,7 @@ void initializeCursesApplication() {
 }
 
 // Reset display to normale state and terminate curses application
-void cleanupCursesApp(void)
-{
+void cleanupCursesApp(void) {
     standend();   // Turn off all attributes
     refresh();    // Write changes to terminal
     curs_set(1);  // Set cursor state to normal visibility
@@ -46,7 +45,7 @@ void cleanupCursesApp(void)
 // ********************************************************************************************
 
 int main(void) {
-    int res_code;         // Result code from functions
+    int res_code; // Result code from functions
     char* message_template = "Das Fenster hat xxx Zeilen und yyy Spalten";
     int msg_len;
     int min_rows = 3;
@@ -70,7 +69,7 @@ int main(void) {
     } else {
         // Center output
         int mid_row = LINES / 2;
-        int start_col = COLS / 2 - (msg_len / 2);
+        int start_col = COLS / 2 - msg_len / 2;
 
         // Write letter A to the top left  corner of our display
         move(0, 0); // Move to position
@@ -100,6 +99,7 @@ int main(void) {
         // Cleanup special curses settings and restore the normal terminal functionality
         cleanupCursesApp();
     }
+
     return res_code;
 }
 
