@@ -6,7 +6,10 @@ This repository contains various content regarding the practical lessons and exe
 
 ```
 .
-├── gdp         # Grundlagen der Programmierung
-├── ra          # Rechnerarchitektur
-└── README.md   # Readme
+├── gdp                     # Grundlagen der Programmierung
+│   └── C projects
+├── ra                      # Rechnerarchitektur
+│   └── Assembly projects
+└── README.md
 ```
+
