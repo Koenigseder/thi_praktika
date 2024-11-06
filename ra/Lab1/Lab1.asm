@@ -1,5 +1,5 @@
 ;---------------------------------------------------------------
-; Lab1_solution.asm
+; Lab1.asm
 ;
 ; Author: Kevin Koenigseder, Raphael Bauer
 ;
