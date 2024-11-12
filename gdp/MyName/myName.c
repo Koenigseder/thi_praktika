@@ -1,8 +1,8 @@
-#include<stdio.h>
+#include <stdio.h>
 
 int main() {
   int age;
-  char* name;
+  char *name;
 
   age = 22;
   name = "Kevin Koenigseder";
@@ -11,4 +11,3 @@ int main() {
 
   return 0;
 }
-
