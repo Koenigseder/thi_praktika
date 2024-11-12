@@ -2,6 +2,14 @@
 
 All C files are formatted with `clang-format`:
 
+In folder scope:
+
+```sh
+clang-format -i ./**/*.c
+```
+
+For a specific C file:
+
 ```sh
 clang-format -i <filename>
 ```
