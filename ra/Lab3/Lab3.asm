@@ -75,7 +75,7 @@ calc_collatz:
 
   ; Check if the number is even or odd
   test eax, 1b
-  jnz n_odd
+  jnz n_odd ; Jump if zero-flag is not zero
 
 ; Calc next Collatz item if the number is even
 n_even:
