@@ -57,7 +57,7 @@ main:
 
   ; Check if passed value is valid
   cmp eax, 1
-  jl wrong_args_passed ; Check if passed integer is negative -> Output error
+  jl wrong_args_passed ; Check if passed integer is less than 1 -> Output error
 
 ; Calculate Collatz sequence
 calc_collatz:
@@ -66,7 +66,7 @@ calc_collatz:
   push decformat
   call printf
 
-  add esp, 4 ; Remove eax from stack
+  add esp, 4 ; Remove decformat from stack
   pop eax ; Reassign eax
 
   ; Check if we already reached '1' -> End the loop
@@ -74,7 +74,7 @@ calc_collatz:
   je end
 
   ; Check if the number is even or odd
-  test eax, 1
+  test eax, 1b
   jnz n_odd
 
 ; Calc next Collatz item if the number is even
@@ -95,8 +95,6 @@ wrong_args_passed:
   call printf
 
   add esp, 4 ; Remove `wrong_args_passed_err_msg` from stack
-
-  jmp end ; Stop program
 
 ; Stop the program
 end:
