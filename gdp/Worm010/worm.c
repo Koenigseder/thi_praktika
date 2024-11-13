@@ -26,7 +26,7 @@ enum ResCode {
   10 // The guaranteed number of columns available for the board
 
 // Numbers for color pairs used by curses macro COLOR_PAIR
-enum ColorPairs {
+enum ColorPair {
   COLP_USER_WORM = 1,
 };
 
@@ -34,7 +34,7 @@ enum ColorPairs {
 #define SYMBOL_WORM_INNER_ELEMENT '0'
 
 // Game state codes
-enum GameStates {
+enum GameState {
   WORM_GAME_ONGOING,  // Game is running
   WORM_OUT_OF_BOUNDS, // Left screen
   WORM_GAME_QUIT,     // User likes to quit
@@ -61,7 +61,7 @@ int theworm_headpos_x; // x-coordinate of the worm's head
 int theworm_dx;
 int theworm_dy;
 
-enum ColorPairs theworm_wcolor;
+enum ColorPair theworm_wcolor;
 
 // ********************************************************************************************
 // Forward declarations of functions
@@ -71,7 +71,7 @@ enum ColorPairs theworm_wcolor;
 
 // Management of the game
 void initializeColors();
-void readUserInput(enum GameStates *agame_state);
+void readUserInput(enum GameState *agame_state);
 enum ResCode doLevel();
 
 // Standard curses initialization and cleanup
@@ -80,15 +80,15 @@ void cleanupCursesApp(void);
 
 // Placing and removing items from the game board
 // Check boundaries of game board
-void placeItem(int y, int x, chtype symbol, enum ColorPairs color_pair);
+void placeItem(int y, int x, chtype symbol, enum ColorPair color_pair);
 int getLastRow();
 int getLastCol();
 
 // Functions concerning the management of the worm data
 enum ResCode initializeWorm(int headpos_y, int headpos_x, enum WormHeading dir,
-                            enum ColorPairs color);
+                            enum ColorPair color);
 void showWorm();
-void moveWorm(enum GameStates *agame_state);
+void moveWorm(enum GameState *agame_state);
 void setWormHeading(enum WormHeading dir);
 
 // ********************************************************************************************
@@ -106,7 +106,7 @@ void initializeColors() {
   init_pair(COLP_USER_WORM, COLOR_GREEN, COLOR_BLACK);
 }
 
-void readUserInput(enum GameStates *agame_state) {
+void readUserInput(enum GameState *agame_state) {
   int ch; // For storing the key codes
 
   if ((ch = getch()) > 0) {
@@ -147,10 +147,10 @@ void readUserInput(enum GameStates *agame_state) {
 }
 
 enum ResCode doLevel() {
-  enum GameStates game_state; // The current game_state
+  enum GameState game_state; // The current game_state
 
   enum ResCode res_code; // Result code from functions
-  int end_level_loop;    // Indicates whether we should leave the main loop
+  bool end_level_loop;    // Indicates whether we should leave the main loop
 
   int bottomLeft_y, bottomLeft_x; // Start positions of the worm
 
@@ -253,7 +253,7 @@ void cleanupCursesApp(void) {
 // *************************************************
 
 // Place an item onto the curses display.
-void placeItem(int y, int x, chtype symbol, enum ColorPairs color_pair) {
+void placeItem(int y, int x, chtype symbol, enum ColorPair color_pair) {
   //  Store item on the display (symbol code)
   move(y, x);                      // Move cursor to (y,x)
   attron(COLOR_PAIR(color_pair));  // Start writing in selected color
@@ -278,7 +278,7 @@ int getLastCol() { return COLS - 1; }
 
 // Initialize the worm
 enum ResCode initializeWorm(int headpos_y, int headpos_x, enum WormHeading dir,
-                            enum ColorPairs color) {
+                            enum ColorPair color) {
   // Initialize position of worms head
   theworm_headpos_y = headpos_y;
   theworm_headpos_x = headpos_x;
@@ -301,7 +301,7 @@ void showWorm() {
             theworm_wcolor);
 }
 
-void moveWorm(enum GameStates *agame_state) {
+void moveWorm(enum GameState *agame_state) {
   // Compute and store new head position according to current heading.
   theworm_headpos_y += theworm_dy;
   theworm_headpos_x += theworm_dx;
@@ -385,5 +385,6 @@ int main(void) {
     cleanupCursesApp();
   }
 
-  return res_code;
+  return (int) res_code;
 }
+
