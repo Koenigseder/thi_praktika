@@ -407,11 +407,12 @@ bool isInUseByWorm(int new_headpos_y, int new_headpos_x) {
 
   do {
     // Compare the position of the current worm element with the new_headpos
-    if (theworm_wormpos_y[i] == new_headpos_y && theworm_wormpos_x[i] == new_headpos_x) {
-    	// Worm collided with itself -> break loop
-	collision = true;
+    if (theworm_wormpos_y[i] == new_headpos_y &&
+        theworm_wormpos_x[i] == new_headpos_x) {
+      // Worm collided with itself -> break loop
+      collision = true;
 
-	break;
+      break;
     }
 
     i++;
