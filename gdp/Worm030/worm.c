@@ -48,7 +48,7 @@ void readUserInput(enum GameState *agame_state) {
       setWormHeading(WORM_RIGHT);
       break;
 
-    case 's':                 // User wants single step
+    case 's': // User wants single step
       nodelay(stdscr, FALSE); // We simply make getch blocking
       break;
 

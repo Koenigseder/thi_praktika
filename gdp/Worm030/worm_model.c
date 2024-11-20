@@ -154,24 +154,44 @@ bool isInUseByWorm(int new_headpos_y, int new_headpos_x) {
 void setWormHeading(enum WormHeading dir) {
   switch (dir) {
   case WORM_UP: // User wants up
+    // Prohibit to move in opposite direction
+    if (theworm_dy == 1) {
+      break;
+    }
+
     theworm_dx = 0;
     theworm_dy = -1;
 
     break;
 
   case WORM_DOWN: // User wants down
+    // Prohibit to move in opposite direction
+    if (theworm_dy == -1) {
+      break;
+    }
+
     theworm_dx = 0;
     theworm_dy = 1;
 
     break;
 
   case WORM_LEFT: // User wants left
+    // Prohibit to move in opposite direction
+    if (theworm_dx == 1) {
+      break;
+    }
+
     theworm_dx = -1;
     theworm_dy = 0;
 
     break;
 
   case WORM_RIGHT: // User wants right
+    // Prohibit to move in opposite direction
+    if (theworm_dx == -1) {
+      break;
+    }
+
     theworm_dx = 1;
     theworm_dy = 0;
 
