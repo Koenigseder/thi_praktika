@@ -1,10 +1,30 @@
+;---------------------------------------------------------------
+; Lab4.asm
+;
+; Author: Kevin Koenigseder
+;
+;
+; This program calculates a ISBN-13 checksum.
+; Pass the ISBN as an argument. e.g. `./Lab4.out 978-129-242-010`
+;
+;
+; Expected output (e.g. for 978-129-242-010):
+; ISBN checksum: 3
+;
+; Expected output (e.g. for 978-3-8458-3851):
+; ISBN checksum: 9
+;
+; Expected output (e.g. for 978-3-518-46920):
+; ISBN checksum: 0
+; ---------------------------------------------------------------
+
 extern printf
 extern calc_isbn_checksum
 
 section .data
-  format_output: db `This ISBN code's checksum is: %d\n`, 0
-  format_not_enough_args: db `Syntax: isbnsum <isbn>\n`, 0
-  format_wrong_format: db `Wrong format!\n`, 0
+  format_output: db `ISBN checksum: %d\n`, 0
+  format_not_enough_args: db `Please pass an ISBN as an argument!\n`, 0
+  format_wrong_format: db `ISBN has a wrong format!\n`, 0
 
 section .text
   global main

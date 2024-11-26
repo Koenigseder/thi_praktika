@@ -1,3 +1,12 @@
+;---------------------------------------------------------------
+; isbn_checksum.asm
+;
+; Author: Kevin Koenigseder
+;
+;
+; External procedure for calculating an ISBN checksum.
+; ---------------------------------------------------------------
+
 section .data
   total_running: dd 0
   total_digits: dd 0
