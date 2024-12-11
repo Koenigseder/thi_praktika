@@ -3,9 +3,6 @@
 #include <curses.h>
 #include <stdbool.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
 #include <unistd.h>
 
 // ********************************************************************************************
@@ -150,7 +147,7 @@ enum ResCode doLevel() {
   enum GameState game_state; // The current game_state
 
   enum ResCode res_code; // Result code from functions
-  bool end_level_loop;    // Indicates whether we should leave the main loop
+  bool end_level_loop;   // Indicates whether we should leave the main loop
 
   int bottomLeft_y, bottomLeft_x; // Start positions of the worm
 
@@ -385,6 +382,5 @@ int main(void) {
     cleanupCursesApp();
   }
 
-  return (int) res_code;
+  return (int)res_code;
 }
-
