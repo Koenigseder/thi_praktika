@@ -5,7 +5,7 @@ All C files are formatted with `clang-format`:
 In folder scope:
 
 ```sh
-clang-format -i ./**/*.c
+clang-format -i ./**/*.{c,h}
 ```
 
 For a specific C file:
@@ -13,4 +13,3 @@ For a specific C file:
 ```sh
 clang-format -i <filename>
 ```
-
